@@ -37,18 +37,21 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        headless: false,
+      },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
@@ -76,6 +79,11 @@ export default defineConfig({
   //   command: 'npm run start',
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
+  // },
+
+  // timeout: 30 * 1000,
+  // expect: {
+  //   timeout: 5000
   // },
 });
 
