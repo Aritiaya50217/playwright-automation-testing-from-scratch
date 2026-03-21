@@ -1,0 +1,23 @@
+{
+  "name": "playwright-automation-testing-from-scratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://Aritiaya50217@github.com/Aritiaya50217/playwright-automation-testing-from-scratch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Aritiaya50217/playwright-automation-testing-from-scratch/issues"
+  },
+  "homepage": "https://github.com/Aritiaya50217/playwright-automation-testing-from-scratch#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
