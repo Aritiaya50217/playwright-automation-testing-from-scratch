@@ -1,11 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Browser Context Playwright test', async ({ browser }) => {
+test('Browser Context Playwright test', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const userName = page.locator('#username');
     const password = page.locator("[type='password']");
     const signIn = page.locator("#signInBtn");
+    const cardTitles = page.locator(".card-body a");
 
 
     // chrome - plugins / cookies
@@ -23,8 +24,6 @@ test.only('Browser Context Playwright test', async ({ browser }) => {
     await userName.fill("");
     await userName.fill("rahulshettyacademy");
     await signIn.click();
-    console.log(await page.locator(".card-body a").first().textContent());
-    console.log(await page.locator(".card-body a").nth(1).textContent());
-
-
+   const allTitles = await cardTitles.allTextContents();
+    console.log(allTitles);
 });
