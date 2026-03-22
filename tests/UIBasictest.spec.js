@@ -24,6 +24,29 @@ test('Browser Context Playwright test', async ({ browser }) => {
     await userName.fill("");
     await userName.fill("rahulshettyacademy");
     await signIn.click();
-   const allTitles = await cardTitles.allTextContents();
+    const allTitles = await cardTitles.allTextContents();
     console.log(allTitles);
 });
+
+test('UI Controls', async ({ page }) => {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    console.log(await page.title());
+    const userName = page.locator('#username');
+    const signIn = page.locator("#signInBtn");
+    const dropdown = page.locator("select.form-control");
+    const isClickRadio = await page.locator(".radiotextsty").last().isChecked();
+
+    await dropdown.selectOption("consult");
+    await page.locator(".radiotextsty").last().click();
+    await page.locator("#okayBtn").click();
+    console.log(isClickRadio);
+    await expect(page.locator(".radiotextsty").last()).toBeChecked();
+    await page.locator("#terms").click();
+    await expect(page.locator("#terms")).toBeChecked();
+    await page.locator("#terms").uncheck();
+    expect(await page.locator("#terms").isChecked()).toBeFalsy();
+
+    // assertion
+    // await page.pause();
+
+})
