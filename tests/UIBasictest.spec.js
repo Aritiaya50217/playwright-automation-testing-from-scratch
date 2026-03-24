@@ -59,4 +59,11 @@ test('@Child window hadl', async ({ browser }) => {
         documentLink.click(),
 
     ])//new page is opened
+
+    const text = await newPage.locator(".red").textContent();
+    const arrayText = text.split("@")
+    const domain = arrayText[1].split(" ")[0]
+    await page.locator("#username").fill(domain);
+    // await page.pause();
+    console.log(await page.locator("#username").inputValue());
 })
